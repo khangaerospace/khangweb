@@ -1,0 +1,17 @@
+
+@import "https://unpkg.com/open-props/normalize.min.css";
+.media-scroller{
+    display: grid;
+    gap: ;
+    grid-auto-flow: column;
+    grid-auto-columns: 21%;
+    overflow-x: auto;
+}
+
+ul {
+    color: rgb(209, 223, 87);
+}
+
+.media-element{
+    padding: 0;
+}

@@ -66,7 +66,7 @@ header.sticky{
     padding: 5px 0;
 }
 
-
+.bolded { font-weight: bold; }
 
 nav ul{
     margin: 0;
@@ -262,11 +262,23 @@ nav > ul > li >a:hover::before{
 
 }
 
+.BoxFinch {
+    padding: 115px;
+    background-color: #6c6d68b6;
+    height: 100%;
+    
+    
+    margin:auto;
+    
+    resize: both;
+    overflow: hide;
+}
+
 .BoxF {
     padding: 115px;
-    
-    height: 100%;
     background-color: #fff;
+    height: 100%;
+    
     
     margin:auto;
     
@@ -607,10 +619,7 @@ progress::-webkit-progress-bar {
     padding-left: 0;
     color: rgb(188, 206, 27);
     margin-top: auto;
-   
-
-
-
+    text-align: left;
 }
 
 .Email{
@@ -1219,4 +1228,423 @@ progress::-webkit-progress-bar {
     font-size:13px;
     color:#aaa;
     margin-bottom:0;
+}
+/*word moving*/
+
+#rssBlock{
+    left:0px;
+    height: 80px;
+    background: #FFFFFF;
+    position: absolute;
+    width:1070px;
+    overflow: hidden;
+  }
+  
+  /*remove p*/
+.cnnContents {
+    width:100%;
+    padding-top: 20px;
+    margin:0 auto;
+    font-size: 25px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-family: 'Museo';
+    font-weight: 300;
+}
+  
+.marqueeStyle {
+    display:inline-block;
+    /* Apply animation to this element */
+    -webkit-animation: scrolling-left1 0s linear infinite;
+    animation: scrolling-left1 50s linear infinite;
+}
+  
+.marqueeStyle2 {
+    display:inline-block;
+    /* Apply animation to this element */
+    -webkit-animation: scrolling-left2 20s linear infinite;
+    animation: scrolling-left2 0s linear infinite;
+    animation-delay: 50s;
+}
+  /* scrolling-left is continuous/repeatly text */
+@keyframes scrolling-left1 {
+    0% {transform: translateX(100%);
+          -webkit-transform: translateX(100%);}
+    100% {transform: translateX(-100%);
+         -webkit-transform: translateX(-100%);}
+}
+@keyframes scrolling-left2 {
+    0% {transform: translateX(0%);
+          -webkit-transform: translateX(0%);}
+    100% {transform: translateX(-200%);
+        -webkit-transform: translateX(-200%);}
+}
+  
+@-webkit-keyframes scrolling-left1 {
+    0% {-webkit-transform: translateX(100%);}
+    100% {-webkit-transform: translateX(-100%);}
+}
+@-webkit-keyframes scrolling-left2 {
+    0% {-webkit-transform: translateX(0%);}
+    100% {-webkit-transform: translateX(-200%);}
+}
+/* Skill Section */
+#skill-section h1{
+    margin: 0;
+    padding-left: 0;
+    color: rgb(96, 125, 198);
+    margin-top: auto;
+    text-align: center;
+}
+#skill-section {
+    background-color: rgb(223, 223, 230);
+}
+.card-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1920px;
+    flex-wrap: wrap;
+    margin: 50px auto;
+    gap: 50px;
+  /*   border: 1px solid red; */
+}
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 220px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px black;
+    text-align: left; /* Changed from center to left */
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+}
+.skill-card:hover{
+    box-shadow: 3px 3px 6px black;
+    transform: scale(1.03);
+}
+.skill-card-logo {
+    width: 80px;
+    aspect-ratio: 1/1; /* Added after recording part */
+}
+.skill-bar-wrapper {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.skill-bar-wrapper > .fab, .skill-bar-wrapper > .fas {
+    font-size: 38px;
+    margin-right: 2%;
+}
+.bar-container {
+    height: 38px;
+    width: 90%;
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 0px;
+}
+.bar {
+    padding: 0px;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.bar > p {
+    color: white;
+    font-size: 20px;
+    text-shadow: 2px 2px 5px black;
+    padding: 0;
+    text-align: center; /* Needed if skill-card text-align is not set to center. */
+    margin: auto;
+}
+  /* .skill-card > p {
+    text-align: justify;
+  } */
+
+.info-button {
+    border: 1px solid black;
+    color: black;
+    padding: 10px;
+    margin-top: auto;
+    display: block;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+.info-button:hover {
+    color: white;
+    cursor: pointer; 
+    background-color: black;
+    transform: scale(1.03);
+    box-shadow: 2px 2px 5px black;
+}
+
+.section-hr {
+    width: 15%;
+    min-width: 200px;
+    margin: 20px auto; /* Changed from 10px to 20px in part 4 */
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px black;
+}
+
+
+/*personal value*/
+
+.image-text-container {
+    display: flex;
+    gap: 2%;
+    margin-top: 50px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.text-wrapper {
+    width: 100%;
+    max-width: 600px;
+}
+.text-wrapper h2{
+    text-align: center;
+}
+.text-wrapper-desc {
+    text-align: justify;
+}
+.text-wrapper p{
+    text-align: center;
+}
+.image-card {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 9/9;
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px black;
+}
+.image-card:hover{
+    transform: scale(1.05);
+    box-shadow: 3px 3px 6px black;
+}
+.row-reverse {
+    flex-direction: row-reverse;
+}
+  
+  /* Divide Section */
+  
+.divide-section {
+    text-align: center;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 5px black;
+}
+.quote-text {
+    margin: 10px auto;
+    max-width: 1920px;
+    font-size: 30px;
+}
+.quote-text:before {content: open-quote;}
+.quote-text:after {content: close-quote;}
+.quote-credit {
+font-size: 25px;
+}
+h3 {
+    margin-bottom: 20px;
+}
+
+#value h1{
+    text-align: center;
+}
+
+  
+/* companies section */
+#companies-section h1{
+    margin: 0;
+    padding-left: 0;
+    color: rgb(96, 125, 198);
+    margin-top: auto;
+    text-align: center;
+}
+
+#companies-section p{
+    margin: 0;
+    padding-left: 0;
+    
+    margin-top: auto;
+    text-align: center;
+}
+#companies-section {
+    background-color: white;
+    
+}
+.org-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1920px;
+    flex-wrap: wrap;
+    margin: 50px auto;
+    gap: 0px;
+
+}
+.org-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 250px;
+
+    text-align: left; 
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+}
+
+.company-logo {
+    width: 100px;
+    
+}
+
+sup {
+    vertical-align: top;
+    font-size: smaller;
+}
+
+.contact-button {
+    border: 1px solid black;
+    color: red;
+    background-color: rgb(0, 243, 16);
+    padding: 10px;
+    margin-top: auto;
+    display: block;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+.contact-button:hover {
+    color: white;
+    
+    cursor: pointer; 
+    background-color: black;
+    transform: scale(1.03);
+    box-shadow: 2px 2px 5px black;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 800px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px black;
+    text-align: left; /* Changed from center to left */
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+}
+
+
+
+.social-media {
+    padding: 2rem 0 0 0;
+    text-align: center;
+}
+  
+.social-media p {
+    color: #333;
+}
+  
+.social-icons {
+    display: flex;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+  
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #1abc9c, #149279);
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 0.5rem;
+    transition: 0.3s;
+}
+  
+.social-icons a:hover {
+    transform: scale(1.05);
+}
+
+.icon2{
+    font-size: 35px;
+}
+
+#PE{
+    color:rgb(122, 8, 223);
+    text-align: center;
+    font-size: 60px;
+    margin: 10px;
+    padding: 0px;
+}
+
+.org-card img{
+    padding: 9px;
+}
+
+
+.career-card {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+    width: 1000px;
+
+    text-align: left; 
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    text-align: left;
+}
+
+.career-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1920px;
+    flex-wrap: wrap;
+    gap: 0px;
+
+}
+
+
+.careerim {
+    padding-right: 20px;
+    padding-bottom: 10px;
+    float: left;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.career-card2 {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+    width: 800px;
+
+    text-align: left; 
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    text-align: left;
+}
+
+.marqueeStyle3 {
+    display:inline-block;
+    /* Apply animation to this element */
+    -webkit-animation: scrolling-left1 1s linear infinite;
+    animation: scrolling-left1 90s linear infinite;
 }
