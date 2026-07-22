@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Khang Nguyen — Aerospace Engineer</title>
+<meta name="description" content="Khang Nguyen — Aerospace Engineering student at the University of Toronto. Robotics, software, satellites." />
+<link rel="stylesheet" href="style.css" />
+<style>
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex; align-items: center;
+  padding: 5rem 0 4rem;
+  position: relative; overflow: hidden;
+}
+/* Glow orb bottom-right */
+.hero::after {
+  content: '';
+  position: absolute; bottom: -100px; right: -60px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(79,142,247,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* TWO-COLUMN: left text, right photo — always side by side on desktop */
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* LEFT COLUMN */
+.hero-sub {
+  font-size: 0.82rem; color: var(--muted);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-sub::before { content: ''; display: block; width: 28px; height: 1px; background: var(--sky); flex-shrink: 0; }
+
+.hero-title { margin-bottom: 1.5rem; }
+.hero-title .line-accent { color: var(--sky); display: block; }
+
+.hero-bio {
+  color: var(--white-2); max-width: 500px;
+  margin-bottom: 2.25rem; line-height: 1.85; font-size: 1.05rem;
+}
+
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* RIGHT COLUMN — the photo */
+.hero-photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+/* Decorative border offset */
+.hero-photo-wrap::before {
+  content: '';
+  position: absolute; top: 14px; left: 14px;
+  right: -14px; bottom: -14px;
+  border: 1px solid rgba(79,142,247,0.25);
+  border-radius: 10px;
+  pointer-events: none;
+}
+.hero-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--line-2);
+  display: block;
+  position: relative; z-index: 1;
+}
+.hero-photo-placeholder {
+  width: 100%; aspect-ratio: 3 / 4;
+  background: var(--navy-3); border: 1px solid var(--line);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 0.8rem; text-align: center; padding: 1rem;
+  position: relative; z-index: 1;
+}
+
+/* ═══════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════ */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.about-text p { color: var(--white-2); line-height: 1.85; margin-bottom: 1.25rem; }
+.about-text a { color: var(--sky); text-decoration: none; }
+.about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.tag {
+  padding: 5px 13px; border: 1px solid var(--line-2);
+  font-size: 0.75rem; color: var(--muted); border-radius: 3px; letter-spacing: 0.05em;
+  transition: border-color 0.2s, color 0.2s;
+}
+.tag:hover { border-color: var(--sky); color: var(--sky); }
+
+.about-highlights { display: flex; flex-direction: column; gap: 1px; }
+.highlight-item {
+  background: var(--navy-3); border: 1px solid var(--line);
+  padding: 1.25rem 1.6rem; transition: background 0.2s, border-color 0.2s;
+}
+.highlight-item:first-child { border-radius: 8px 8px 0 0; }
+.highlight-item:last-child  { border-radius: 0 0 8px 8px; }
+.highlight-item:hover { background: var(--navy-4); border-color: var(--line-2); }
+.hi-label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); margin-bottom: 0.3rem; }
+.hi-value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
+.hi-sub { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+
+/* ═══════════════════════════════════════
+   SKILLS
+═══════════════════════════════════════ */
+.skills-section { background: var(--navy-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.skills-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-top: 3rem;
+}
+.skill-card { background: var(--navy-2); padding: 1.4rem; transition: background 0.2s; }
+.skill-card:hover { background: var(--navy-4); }
+.skill-name { font-size: 0.9rem; font-weight: 500; color: var(--white); margin-bottom: 0.3rem; }
+.skill-note { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+.skill-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--sky); margin-bottom: 0.6rem; }
+
+/* ═══════════════════════════════════════
+   VALUES
+═══════════════════════════════════════ */
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.value-card {
+  background: var(--navy-3); border: 1px solid var(--line);
+  border-radius: 8px; padding: 2rem; transition: border-color 0.25s, transform 0.25s;
+  position: relative; overflow: hidden;
+}
+.value-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--sky), transparent);
+}
+.value-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
+.value-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+.value-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+.value-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+/* ═══════════════════════════════════════
+   QUOTE
+═══════════════════════════════════════ */
+.quote-section {
+  background: var(--navy-2);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.quote-block { max-width: 680px; margin: 0 auto; text-align: center; padding: 5rem 0; }
+.quote-block blockquote {
+  font-family: 'Syne', sans-serif; font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 400; color: var(--white-2); line-height: 1.7; font-style: italic;
+}
+.quote-block cite { display: block; margin-top: 1.5rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+/* ═══════════════════════════════════════
+   BLOG PREVIEW
+═══════════════════════════════════════ */
+.blog-preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+.blog-preview-card {
+  background: var(--navy-3); border: 1px solid var(--line);
+  border-radius: 8px; padding: 1.75rem;
+  text-decoration: none; color: inherit; display: block;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+.blog-preview-card:hover { border-color: var(--sky); background: var(--navy-4); transform: translateY(-2px); }
+.bpc-cat { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); margin-bottom: 0.6rem; }
+.bpc-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.6rem; }
+.bpc-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+.bpc-arrow { margin-top: 1rem; font-size: 0.78rem; color: var(--sky); }
+/* ADD THIS */
+.hero-marquee {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee-viewport {
+  overflow: hidden;
+  max-width: 100%;
+  -webkit-mask: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .hero-photo-wrap {
+    /* Show photo above text on mobile, centered, smaller */
+    order: -1;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+  .hero-photo-wrap::before { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .values-grid { grid-template-columns: 1fr; }
+  .hero-photo-wrap { max-width: 180px; }
+}
+
+/* ── STATS ── */
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.stat-card {
+  background: var(--navy-3);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 1.75rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s, border-color 0.25s;
+}
+.stat-card:first-child  { border-radius: 8px 8px 0 0; }
+.stat-card:last-child   { border-radius: 0 0 8px 8px; }
+.stat-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--sky);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.stat-card:hover { background: var(--navy-4); border-color: var(--line-2); }
+.stat-card:hover::before { opacity: 1; }
+
+/* Override stat card sizing */
+.stat-card {
+  padding: 1.1rem 1.4rem;
+}
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.35rem;
+}
+.stat-number {
+  font-size: 2.2rem;
+  margin-bottom: 0.2rem;
+}
+.stat-number::after {
+  font-size: 1.2rem;
+}
+.stat-label {
+  font-size: 0.8rem;
+  margin-bottom: 0.15rem;
+}
+.stat-sub {
+  font-size: 0.72rem;
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+.stat-header .stat-icon {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+.stat-header .stat-label {
+  margin-bottom: 0;
+}
+
+/* ── EXPERIENCE SECTION ── */
+.experience-section {
+  background: var(--navy-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.exp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.exp-row:last-child { border-bottom: none; }
+.exp-row-reverse { direction: rtl; }
+.exp-row-reverse > * { direction: ltr; }
+
+/* Image side */
+.exp-img-wrap {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.exp-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  filter: brightness(0.88);
+}
+.exp-img-wrap:hover img { transform: scale(1.04); filter: brightness(1); }
+.exp-img-placeholder {
+  width: 100%; height: 100%;
+  background: var(--navy-3);
+  border: 1px dashed var(--line-2);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 0.85rem; text-align: center;
+  padding: 1rem; aspect-ratio: 4 / 3;
+}
+.exp-img-tag {
+  position: absolute; bottom: 14px; left: 14px;
+  background: rgba(10,14,26,0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line-2);
+  color: var(--sky);
+  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 3px;
+}
+
+/* Text side */
+.exp-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--sky); margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.exp-eyebrow::before {
+  content: ''; display: block; width: 18px; height: 1px; background: var(--sky);
+}
+.exp-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 700; line-height: 1.2;
+  margin-bottom: 1.1rem; color: var(--white);
+}
+.exp-desc {
+  font-size: 0.95rem; color: var(--white-2);
+  line-height: 1.85; margin-bottom: 1.5rem;
+}
+.exp-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+}
+.exp-tags span {
+  padding: 4px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: 3px;
+  font-size: 0.72rem; letter-spacing: 0.05em;
+  color: var(--muted);
+  transition: border-color 0.2s, color 0.2s;
+}
+.exp-tags span:hover { border-color: var(--sky); color: var(--sky); }
+
+/* Responsive */
+@media (max-width: 800px) {
+  .exp-row { grid-template-columns: 1fr; gap: 2rem; direction: ltr; }
+  .exp-row-reverse { direction: ltr; }
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials-section {
+  padding: 7rem 0 5rem;
+  background: var(--navy-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.testimonials-section .container { margin-bottom: 3.5rem; }
+
+/* Full-width stage — no side padding, no mask fade */
+.t-stage {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+}
+.t-stage:active { cursor: grabbing; }
+
+/* Track slides — each card is 100vw wide */
+.t-track {
+  display: flex;
+  will-change: transform;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Each card fills the full viewport width */
+.t-card {
+  min-width: 100vw;
+  max-width: 100vw;
+  padding: 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+/* Inner content box — sits below nav, big and centred */
+.t-card-inner {
+  background: var(--navy-3);
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  padding: 4rem 5rem;
+  max-width: 860px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.t-card-inner::before {
+  content: '\201C';
+  position: absolute; top: -30px; right: 30px;
+  font-family: 'Syne', sans-serif; font-size: 12rem; font-weight: 800;
+  color: var(--sky); opacity: 0.05; line-height: 1; pointer-events: none;
+}
+
+.t-stars { color: var(--sky); font-size: 0.85rem; letter-spacing: 4px; margin-bottom: 0.5rem; }
+
+.t-quote {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 400; font-style: italic;
+  color: var(--white-2); line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.t-person {
+  display: flex; align-items: center; gap: 1rem;
+  padding-top: 2rem; border-top: 1px solid var(--line);
+  justify-content: center;
+}
+.t-avatar {
+  width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+  border: 2px solid rgba(79,142,247,0.4);
+}
+.t-avatar-ph {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--navy-4); border: 2px solid var(--line-2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 1.2rem; flex-shrink: 0;
+}
+.t-name { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+.t-role { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+/* Dots */
+.t-dots {
+  display: flex; justify-content: center; gap: 10px; margin-top: 2.5rem;
+}
+.t-dot {
+  height: 5px; border-radius: 3px;
+  background: var(--line-2); border: none; cursor: pointer; padding: 0;
+  transition: background 0.3s, width 0.3s; width: 5px;
+}
+.t-dot.active { background: var(--sky); width: 32px; }
+
+@media (max-width: 700px) {
+  .t-card-inner { padding: 2.5rem 1.75rem; }
+  .t-quote { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span class="nav-logo-dot"></span>Khang Nguyen
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">About</a></li>
+    <li><a href="career.html">Career</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">About</a>
+  <a href="career.html">Career</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- LEFT: text content -->
+      <div>
+        <div class="hero-sub">Aerospace · Robotics · Software</div>
+        <h1 class="hero-title">
+          Hello, I'm<br>
+          <span class="line-accent">Khang Nguyen</span>
+        </h1>
+        <p class="hero-bio">I design and develop cutting-edge technologies for emerging high-tech markets in Toronto, Canada.</p>
+        <div class="hero-cta">
+          <a href="career.html" class="btn btn-solid">View My Career</a>
+          <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+        </div>
+
+        <!-- Marquee -->
+        <div class="hero-marquee">
+          <p class="marquee-label">Organisations I've been part of</p>
+          <div class="marquee-viewport">
+            <div class="marquee-track">
+              <div class="marquee-set" id="marquee-set-a">
+                <div class="logo-item">
+                  <img src="companies/kepler.png" alt="Kepler Communications" class="logo-img" />
+                  <span class="logo-name">Kepler Communications</span>
+                </div>
+                <div class="logo-item">
+                  <img src="companies/utat-logo.png" alt="UofT Aerospace Team" class="logo-img" />
+                  <span class="logo-name">UofT Aerospace Team</span>
+                </div>
+                <div class="logo-item">
+                  <img src="companies/Johnson_Controls.svg.png" alt="Johnson Controls" class="logo-img" />
+                  <span class="logo-name">Johnson Controls</span>
+                </div>
+                <div class="logo-item">
+                  <img src="companies/university-of-toronto-logo.png" alt="University of Toronto" class="logo-img" />
+                  <span class="logo-name">University of Toronto</span>
+                </div>
+                <div class="logo-item">
+                  <img src="companies/Pratt_&_Whitney_logo.svg" alt="Pratt & Whitney" class="logo-img" />
+                  <span class="logo-name">Pratt & Whitney Canada</span>
+                </div>
+                <div class="logo-item">
+                  <img src="companies/STEM-camp-logo-primary-full-colour-3x.webp" alt="STEM Camp" class="logo-img" />
+                  <span class="logo-name">STEM Camp</span>
+                </div>
+                
+              </div>
+              <div class="marquee-set" aria-hidden="true" id="marquee-set-b"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: photo -->
+      <div class="hero-photo-wrap">
+        <img src="picture/khangpic.jpg" alt="Khang Nguyen" class="hero-photo"
+          onerror="this.outerHTML='<div class=\'hero-photo-placeholder\'>Add photo:<br>picture/khangpic.jpg</div>'" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section>
+  <div class="container reveal">
+    <span class="eyebrow">About Me</span>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 style="margin-bottom:1.5rem;">Science, Technology<br>&amp; Humanity</h2>
+        <p>I am an engineering graduate from <a href="https://www.utoronto.ca/">University of Toronto</a>, holding a Bachelor of Applied Science in Engineering Science. I design and develop cutting-edge technologies for emerging high-tech markets in Toronto, Canada.</p>
+        <p>My expertise spans robotics, spacecraft, and aircraft engineering. I currently work as a Satellite Systems Engineering Designer at Kepler Communications, where I help build the internet for space. I also bring industry experience from leading Fortune 500 companies, including Johnson Controls and RTX Corporation.</p>
+        <p>In my free time, I enjoy mentoring and supporting young professionals as they begin their careers.</p>
+        <!--</p><p>This website is dedicated to my life, talents, skills, and accomplishments — updated every year to reflect new milestones.</p>-->
+        <div class="about-tags">
+          <span class="tag">Aerospace Engineering</span>
+          <span class="tag">Satellite Systems</span>
+          <span class="tag">Embedded Hardware</span>
+          <span class="tag">Robotics</span>
+          <span class="tag">Python</span>
+          <span class="tag">MATLAB</span>
+          <span class="tag">Toronto, Canada</span>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card" data-target="24">
+          <div class="stat-header">
+            <div class="stat-icon">🛰️</div>
+            <div class="stat-label">Satellites Supported</div>
+          </div>
+          <div class="stat-number"><span class="stat-count">0</span></div>
+          
+        </div>
+
+        <div class="stat-card" data-target="15">
+          <div class="stat-header">
+            <div class="stat-icon">✈️</div>
+            <div class="stat-label">Commertial Products</div>
+          </div>
+          <div class="stat-number"><span class="stat-count">0</span></div>
+          
+        </div>
+
+        <div class="stat-card" data-target="5">
+          <div class="stat-header">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          <div class="stat-number"><span class="stat-count">0</span></div>
+          
+        </div>
+
+        <div class="stat-card" data-target="3">
+          <div class="stat-header">
+            <div class="stat-icon">📄</div>
+            <div class="stat-label">Publications</div>
+          </div>
+          <div class="stat-number"><span class="stat-count">0</span></div>
+          
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<section class="experience-section">
+  <div class="container reveal">
+    <span class="eyebrow">Experience</span>
+    <h2>Work in Action</h2>
+
+    <!-- ENTRY 1: Satellites — image LEFT -->
+    <div class="exp-row">
+      <div class="exp-img-wrap">
+        <img src="picture/satellite_work.PNG" alt="Working on satellites"
+          onerror="this.outerHTML='<div class=\'exp-img-placeholder\'>📸 experience/satellite.jpg</div>'" />
+        <div class="exp-img-tag">Satellite Systems</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-eyebrow">Space Systems</div>
+        <h3 class="exp-title">Building Advance Satellite</h3>
+        <p class="exp-desc">I’ve been involved across the full lifecycle of multiple space missions—from early concept development through operations and end-of-life planning. I’ve had the opportunity to learn directly from leading engineers at MDA and UTIAS, strengthening both my technical and systems-level perspective. My experience spans Earth observation missions, such as FINCH with the University of Toronto Aerospace Team, as well as communications constellations like AETHER at Kepler Communications.</p>
+        <div class="exp-tags">
+          <span>Python</span><span>MATLAB</span><span>Simulink</span><span>STK</span><span>AOCS</span><span>MBSE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTRY 2: Aircraft — image RIGHT -->
+    <div class="exp-row exp-row-reverse">
+      <div class="exp-img-wrap">
+        <img src="picture/pwc_pic.JPG" alt="Working on aircraft"
+          onerror="this.outerHTML='<div class=\'exp-img-placeholder\'>📸 experience/aircraft.jpg</div>'" />
+        <div class="exp-img-tag">Aviation</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-eyebrow">Aircraft Engineering</div>
+        <h3 class="exp-title">Support Sustainable Aviation </h3>
+        <p class="exp-desc">From academic training with professors at the University of Toronto Institute for Aerospace Studies to hands-on experience in advanced sustainable propulsion systems at Pratt & Whitney Canada, I have contributed to the design and development of advanced aviation systems ranging from UAVs to commercial aircraft engines. My work has supported products such as the PT6, PW100, PW200, PW500, and PW900 engine families. I continue to expand my expertise through ongoing learning and research in the field of aviation</p>
+        <div class="exp-tags">
+          <span>Propulsion</span><span>CAD</span><span>CATIA</span><span>Manufacturing</span><span>UAV</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTRY 3: Lecture — image LEFT -->
+    <div class="exp-row">
+      <div class="exp-img-wrap">
+        <img src="picture/Lecture.jpg" alt="Giving a lecture"
+          onerror="this.outerHTML='<div class=\'exp-img-placeholder\'>📸 experience/lecture.jpg</div>'" />
+        <div class="exp-img-tag">Teaching & Outreach</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-eyebrow">Volunteer and Outreach</div>
+        <h3 class="exp-title">Empowering the Next Generation</h3>
+        <p class="exp-desc">Through mentorship and volunteering, I’m committed to empowering the next generation to believe in their potential and pursue their ambitions with confidence. I work with students from high school through university, offering guidance, support, and encouragement as they navigate their paths. Inspired by those who once guided me, I aim to pay that forward—helping others turn curiosity into action and dreams into reality.</p>
+        <div class="exp-tags">
+          <span>Public Speaking</span><span>Education</span><span>Mentorship</span><span>Leadership</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ VALUES ═══ -->
+<section>
+  <div class="container reveal">
+    <span class="eyebrow">Values</span>
+    <h2>What Drives Me</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🌐</div>
+        <h3>Community</h3>
+        <p>As a future engineer passionate about uniting people through technology, I leverage teamwork and leadership to cultivate resilience. Together, let's exceed what's possible.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🚀</div>
+        <h3>Exploration</h3>
+        <p>Exploration breeds experience that fuels innovation. I immerse myself in passions while staying open to new possibilities — always aiming for a life story worth sharing.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <h3>Never Give Up</h3>
+        <p>Failures are inevitable in the pursuit of significant goals. I consistently rise and persist, moving steadily forward driven by the pursuit of success.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testimonials-section">
+  <div class="container reveal">
+    <span class="eyebrow">Testimonials</span>
+    <h2>What People Say</h2>
+  </div>
+
+  <div class="t-stage">
+    <div class="t-track" id="t-track">
+
+      <!-- CARD 1 -->
+      <div class="t-card">
+        
+        <div class="t-quote">"“You (Khang) have been a great addition to the team […] showing a team of young professionals growing together while embracing opportunities to share knowledge.”</div>
+        <div class="t-person">
+          <img src="picture/pascal.jpg" alt="Person Name" class="t-avatar"
+            onerror="this.outerHTML='<div class=\'t-avatar-ph\'>👤</div>'" />
+          <div>
+            <div class="t-name">Pascal Dessureault, P.Eng.</div>
+            <div class="t-role">Senior Manager, Design, Support to Operations · Pratt & Whitney Canada</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="t-card">
+        <div class="t-quote">"I have known Khang for two years. [...] Khang has done an excellent job on his thesis. It is technically very strong and very well written. [...] Khang has excelled in his academic program (the Aerospace Engineering major of the Engineering Science program) [...] Khang demonstrated that he could work very well in a team and demonstrated strong oral and written communication skills"</div>
+        <div class="t-person">
+          <img src="picture/damaren.jpg" alt="Person Name" class="t-avatar"
+            onerror="this.outerHTML='<div class=\'t-avatar-ph\'>👤</div>'" />
+          <div>
+            <div class="t-name">Christopher J. Damaren, Ph.D., P.Eng.</div>
+            <div class="t-role">Professor and Director · University of Toronto Institute for Aerospace Studies</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="t-card">
+        
+        <div class="t-quote">"Khang you've been doing an excellent job [...] You've been taking initiative in a lot of important aspects of team operations, which has been valuable in keeping things running smoothly."</div>
+        <div class="t-person">
+          <img src="picture/david.jpg" alt="Person Name" class="t-avatar"
+            onerror="this.outerHTML='<div class=\'t-avatar-ph\'>👤</div>'" />
+          <div>
+            <div class="t-name">David Maranto</div>
+            <div class="t-role">Chief Engineer · University of Toronto Aerospace Team</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote">"Add the quote from this person here. Something they said about working with you or your impact on them."</div>
+        <div class="t-person">
+          <img src="testimonials/person4.jpg" alt="Person Name" class="t-avatar"
+            onerror="this.outerHTML='<div class=\'t-avatar-ph\'>👤</div>'" />
+          <div>
+            <div class="t-name">Person Name</div>
+            <div class="t-role">Their Title · Organisation</div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote">"Add the quote from this person here. Something they said about working with you or your impact on them."</div>
+        <div class="t-person">
+          <img src="testimonials/person5.jpg" alt="Person Name" class="t-avatar"
+            onerror="this.outerHTML='<div class=\'t-avatar-ph\'>👤</div>'" />
+          <div>
+            <div class="t-name">Person Name</div>
+            <div class="t-role">Their Title · Organisation</div>
+          </div>
+        </div>
+      </div>-->
+
+      <!-- ADD MORE: copy any .t-card block above -->
+
+    </div>
+  </div>
+
+  <div class="t-dots" id="t-dots"></div>
+</section>
+
+<!-- ═══ BLOG PREVIEW ═══ -->
+<section>
+  <div class="container reveal">
+    <span class="eyebrow">Writing</span>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0;">
+      <h2>Recent Posts</h2>
+      <a href="blog.html" class="btn btn-outline" style="margin-bottom:0.4rem;">All Posts</a>
+    </div>
+    <div class="blog-preview-grid">
+      <a href="https://www.crashcube.ca/adcs/vectrix-dynamic-notation/" target="_blank" class="blog-preview-card">
+        <div class="bpc-cat">Training · Jul 2023</div>
+        <div class="bpc-title">Vectrix Dynamic Notation</div>
+        <div class="bpc-desc">A vector is a useful way to define a quantity having both magnitude and direction. Vectrix notation formalises this for attitude dynamics.</div>
+        <div class="bpc-arrow">Read →</div>
+      </a>
+      <a href="https://digitalcommons.usu.edu/cgi/viewcontent.cgi?article=5758&context=smallsat" target="_blank" class="blog-preview-card">
+        <div class="bpc-cat">Research · Aug 2023</div>
+        <div class="bpc-title">Hot &amp; Cold: The FINCH Thermal Simulator</div>
+        <div class="bpc-desc">Thermal modelling is an integral part of the satellite design process — a look at FINCH's approach.</div>
+        <div class="bpc-arrow">Read paper →</div>
+      </a>
+      <a href="https://www.crashcube.ca/adcs/introduction-to-attitude-determination-and-control-adcs/" target="_blank" class="blog-preview-card">
+        <div class="bpc-cat">Teaching · Mar 2023</div>
+        <div class="bpc-title">Intro to Attitude Determination and Control</div>
+        <div class="bpc-desc">The ADCS is a fundamental part of any satellite mission. An accessible introduction to the concepts and systems.</div>
+        <div class="bpc-arrow">Read →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>© 2025 Khang Nguyen — Toronto, Canada</span>
+  <div class="footer-links">
+    <a href="https://github.com/khangaerospace" target="_blank">GitHub</a>
+    <a href="career.html">Career</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  ham.addEventListener('click', () => mob.classList.toggle('open'));
+
+  const io = new IntersectionObserver(entries =>
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.005 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const setA = document.getElementById('marquee-set-a');
+  const setB = document.getElementById('marquee-set-b');
+  if (setA && setB) setB.innerHTML = setA.innerHTML;
+
+  // Count-up animation — triggers when section scrolls into view
+function countUp(el, target, duration = 1000000) {
+  let start = 0;
+  const step = Math.ceil(target / (duration / 64));
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { start = target; clearInterval(timer); }
+    el.textContent = start;
+  }, 16);
+}
+
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const card = entry.target;
+      const target = parseInt(card.dataset.target);
+      const countEl = card.querySelector('.stat-count');
+      countUp(countEl, target);
+      statObserver.unobserve(card); // only animate once
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.stat-card').forEach(card => statObserver.observe(card));
+
+// Testimonials — full-width looping carousel
+const tTrack = document.getElementById('t-track');
+const tDots  = document.getElementById('t-dots');
+
+if (tTrack) {
+  const tCards = [...tTrack.querySelectorAll('.t-card')];
+  const total  = tCards.length;
+  let cur = 0, timer, sx = 0, drag = false;
+
+  // Build dots — one per card
+  tCards.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 't-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', `Testimonial ${i + 1}`);
+    d.addEventListener('click', () => go(i));
+    tDots.appendChild(d);
+  });
+
+  function go(i) {
+    // True looping: wrap index
+    cur = ((i % total) + total) % total;
+    tTrack.style.transform = `translateX(-${cur * 100}vw)`;
+    document.querySelectorAll('.t-dot').forEach((d, j) =>
+      d.classList.toggle('active', j === cur));
+    clearInterval(timer);
+    timer = setInterval(() => go(cur + 1), 5000);
+  }
+
+  // Drag/swipe
+  tTrack.addEventListener('mousedown',  e => { sx = e.clientX; drag = true; });
+  tTrack.addEventListener('mouseup',    e => {
+    if (!drag) return; drag = false;
+    const d = sx - e.clientX;
+    if (Math.abs(d) > 60) go(d > 0 ? cur + 1 : cur - 1);
+  });
+  tTrack.addEventListener('mouseleave', () => drag = false);
+  tTrack.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  tTrack.addEventListener('touchend',   e => {
+    const d = sx - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 60) go(d > 0 ? cur + 1 : cur - 1);
+  });
+
+  timer = setInterval(() => go(cur + 1), 5000);
+}
+</script>
+</body>
+</html>

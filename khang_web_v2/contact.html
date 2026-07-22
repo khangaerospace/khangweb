@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Khang Nguyen</title>
+<meta name="description" content="Get in touch with Khang Nguyen — collaboration, opportunities, or just to say hello." />
+<link rel="stylesheet" href="style.css" />
+<style>
+
+.page-hero {
+  padding: 5rem 0 4rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--navy-2);
+  position: relative; overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(79,142,247,0.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* LAYOUT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+
+/* INFO PANEL */
+.info-intro { color: var(--white-2); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2.5rem; }
+.contact-item { padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+.contact-item:first-of-type { border-top: 1px solid var(--line); }
+.ci-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); margin-bottom: 0.3rem; }
+.ci-value { font-size: 0.9rem; color: var(--white-2); }
+.ci-value a { color: var(--white-2); text-decoration: none; transition: color 0.2s; }
+.ci-value a:hover { color: var(--sky); }
+
+/* FORM */
+.form-wrap {
+  background: var(--navy-3); border: 1px solid var(--line);
+  border-radius: 8px; padding: 2.5rem;
+  position: relative; overflow: hidden;
+}
+.form-wrap::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--sky), var(--sky-dim), transparent);
+}
+.form-title { font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.35rem; }
+.form-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
+
+.field { margin-bottom: 1.1rem; }
+.field label {
+  display: block; font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.45rem;
+}
+.field input, .field select, .field textarea {
+  width: 100%; padding: 0.75rem 1rem;
+  background: var(--navy-2); border: 1px solid var(--line-2);
+  font-family: var(--sans); font-size: 0.9rem; color: var(--white);
+  border-radius: 4px; outline: none; transition: border-color 0.2s;
+  appearance: none;
+}
+.field select { cursor: pointer; }
+.field select option { background: var(--navy-2); }
+.field input::placeholder, .field textarea::placeholder { color: var(--muted); }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--sky); }
+.field textarea { resize: vertical; min-height: 130px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.submit-btn {
+  width: 100%; padding: 0.85rem;
+  background: var(--sky); color: var(--navy);
+  border: none; border-radius: 4px;
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  cursor: pointer; transition: background 0.2s, box-shadow 0.2s;
+  margin-top: 0.5rem;
+}
+.submit-btn:hover { background: #6ba6ff; box-shadow: 0 0 20px rgba(79,142,247,0.35); }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-msg {
+  display: none; margin-top: 1rem; padding: 0.85rem 1rem;
+  border-radius: 4px; font-size: 0.85rem;
+}
+.form-success { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #34d399; }
+.form-error   { background: rgba(239,68,68,0.1);  border: 1px solid rgba(239,68,68,0.3);  color: #f87171; }
+
+/* SETUP NOTE */
+.setup-note {
+  margin-top: 1.5rem; padding: 1rem 1.25rem;
+  background: var(--navy); border: 1px dashed var(--line-2);
+  border-radius: 4px; font-size: 0.8rem; color: var(--muted); line-height: 1.7;
+}
+.setup-note code { background: var(--navy-3); padding: 1px 5px; border-radius: 3px; font-size: 0.78rem; color: var(--sky); }
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .field-row { grid-template-columns: 1fr; }
+  .page-hero { padding: 3.5rem 0 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><span class="nav-logo-dot"></span>Khang Nguyen</a>
+  <ul class="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="career.html">Career</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">About</a><a href="career.html">Career</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+</div>
+
+<main>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Get in Touch</span>
+    <h1>Contact</h1>
+    <p class="lead" style="margin-top:1.25rem; max-width:500px;">Whether it's a collaboration, an opportunity, or just an interesting conversation — I'd love to hear from you. I typically respond within a few days.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container reveal">
+    <div class="contact-grid">
+
+      <!-- LEFT: INFO -->
+      <div>
+        <p class="info-intro">I'm always open to engineering opportunities, research collaboration, and interesting ideas. Don't hesitate to reach out — I read everything.</p>
+        <div class="contact-item">
+          <div class="ci-label">Location</div>
+          <div class="ci-value">Toronto, Ontario, Canada</div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-label">University</div>
+          <div class="ci-value">
+            <a href="https://www.utoronto.ca/" target="_blank">University of Toronto</a><br>
+            Engineering Science — Aerospace
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-label">GitHub</div>
+          <div class="ci-value">
+            <a href="https://github.com/khangaerospace" target="_blank">github.com/khangaerospace</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-label">Organisation</div>
+          <div class="ci-value">
+            Satellite Systems Engineering Designer<br>
+            Kepler Communication Inc
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div>
+        <div class="form-wrap">
+          <div class="form-title">Send a Message</div>
+          <div class="form-sub">All fields are required.</div>
+
+          <!--
+            SETUP INSTRUCTIONS:
+            1. Sign up free at https://formspree.io/f/mbdqnlqb
+            2. Create a new form → copy the form ID (e.g. xpznkqra)
+            3. Replace YOUR_FORM_ID below with your actual form ID
+            Free tier: 50 submissions/month — more than enough to start.
+          -->
+          <form id="contact-form" action="https://formspree.io/f/mbdqnlqb" method="POST">
+
+            <div class="field-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="subject">Topic</label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select a topic…</option>
+                <option value="collaboration">Research Collaboration</option>
+                <option value="opportunity">Opportunity</option>
+                <option value="project">Project Inquiry</option>
+                <option value="speaking">Speaking / Events</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me what's on your mind…" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
+
+            <div class="form-msg form-success" id="form-success">
+              ✓ Message sent — I'll get back to you soon.
+            </div>
+            <div class="form-msg form-error" id="form-error">
+              Something went wrong. Please try again or reach out via GitHub.
+            </div>
+
+          </form>
+        </div>
+
+        
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>© 2025 Khang Nguyen — Toronto, Canada</span>
+  <div class="footer-links">
+    <a href="https://github.com/khangaerospace" target="_blank">GitHub</a>
+    <a href="index.html">About</a>
+    <a href="career.html">Career</a>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  ham.addEventListener('click', () => mob.classList.toggle('open'));
+
+  const io = new IntersectionObserver(entries =>
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // AJAX form submit
+  const form = document.getElementById('contact-form');
+  const btn  = document.getElementById('submit-btn');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST', body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('form-success').style.display = 'block';
+        document.getElementById('form-error').style.display   = 'none';
+        form.reset();
+      } else {
+        document.getElementById('form-error').style.display   = 'block';
+        document.getElementById('form-success').style.display = 'none';
+      }
+    } catch {
+      document.getElementById('form-error').style.display = 'block';
+    }
+    btn.textContent = 'Send Message'; btn.disabled = false;
+  });
+</script>
+</body>
+</html>

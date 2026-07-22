@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Career — Khang Nguyen</title>
+<meta name="description" content="Khang Nguyen's career — aerospace engineering, education, publications, and leadership." />
+<link rel="stylesheet" href="style.css" />
+<style>
+
+/* ════════════════════════════════════════
+   PAGE HERO
+════════════════════════════════════════ */
+.page-hero {
+  padding: 6rem 0 5rem; border-bottom: 1px solid var(--line);
+  background: var(--navy-2); position: relative; overflow: hidden;
+}
+.page-hero::after {
+  content: ''; position: absolute; top: -80px; right: -80px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(79,142,247,0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+.page-hero-inner { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 3rem; }
+.hero-stats { display: flex; gap: 2.5rem; flex-shrink: 0; }
+.hs { text-align: center; }
+.hs-val {
+  font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800;
+  color: var(--white); letter-spacing: -0.03em; line-height: 1;
+}
+.hs-val::after { content: '+'; font-size: 1.3rem; color: var(--sky); }
+.hs-lbl { font-size: 0.66rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+
+/* ════════════════════════════════════════
+   NAV TABS
+════════════════════════════════════════ */
+.career-tabs {
+  display: flex; gap: 0; border-bottom: 1px solid var(--line);
+  background: var(--navy-2); position: sticky; top: var(--nav-h); z-index: 50;
+}
+.career-tab {
+  padding: 1rem 1.75rem; font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+  border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.career-tab:hover { color: var(--white); }
+.career-tab.active { color: var(--sky); border-bottom-color: var(--sky); }
+
+/* ════════════════════════════════════════
+   SECTIONS
+════════════════════════════════════════ */
+.career-section { padding: 6rem 0; }
+.career-section + .career-section { border-top: 1px solid var(--line); }
+.section-alt { background: var(--navy-2); }
+.section-title-row { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
+
+/* ════════════════════════════════════════
+   EDUCATION
+════════════════════════════════════════ */
+.edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+.edu-card {
+  background: var(--navy-3); border: 1px solid var(--line); border-radius: 14px;
+  padding: 2rem; display: flex; gap: 1.25rem; align-items: flex-start;
+  transition: border-color 0.25s, transform 0.25s; position: relative; overflow: hidden;
+}
+.edu-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--sky), transparent);
+}
+.edu-card:hover { border-color: rgba(79,142,247,0.3); transform: translateY(-3px); }
+.edu-logo {
+  width: 50px; height: 50px; border-radius: 10px; background: var(--navy-4);
+  border: 1px solid var(--line-2); display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; overflow: hidden;
+}
+.edu-logo img { width: 36px; height: 36px; object-fit: contain; filter: brightness(0) invert(1); }
+.edu-logo-ph { font-size: 1.3rem; }
+.edu-school { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.25rem; }
+.edu-prog { color: var(--dim); font-size: 0.88rem; margin-bottom: 0.35rem; }
+.edu-years { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+.edu-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.edu-chip {
+  font-size: 0.67rem; padding: 3px 10px; border-radius: 100px;
+  border: 1px solid var(--line-2); color: var(--muted);
+}
+
+/* ════════════════════════════════════════
+   TIMELINE (shared by experience + volunteer)
+════════════════════════════════════════ */
+.timeline { position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 4px; bottom: 0; width: 1px;
+  background: linear-gradient(to bottom, var(--sky) 0%, rgba(79,142,247,0.08) 100%);
+}
+.tl-group { padding-left: 2.5rem; margin-bottom: 3rem; }
+.tl-group:last-child { margin-bottom: 0; }
+
+.tl-year {
+  font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky);
+  margin-bottom: 1.25rem; display: flex; align-items: center; gap: 10px;
+}
+.tl-year::before {
+  content: ''; display: block; width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+  background: var(--sky); box-shadow: 0 0 10px rgba(79,142,247,0.55);
+  margin-left: -2.95rem;
+}
+.tl-year.is-now::before { animation: dot-pulse 2.5s ease-in-out infinite; }
+@keyframes dot-pulse {
+  0%,100% { box-shadow: 0 0 6px rgba(79,142,247,0.6); }
+  50%      { box-shadow: 0 0 16px rgba(79,142,247,1), 0 0 32px rgba(79,142,247,0.35); }
+}
+
+.tl-item { margin-bottom: 1.25rem; }
+.tl-item:last-child { margin-bottom: 0; }
+
+.tl-card {
+  background: var(--navy-3); border: 1px solid var(--line); border-radius: 14px;
+  padding: 1.75rem; transition: border-color 0.25s, box-shadow 0.25s;
+  position: relative; overflow: hidden;
+}
+.tl-card:hover { border-color: rgba(79,142,247,0.22); box-shadow: 0 8px 32px rgba(0,0,0,0.22); }
+.tl-card.is-current::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--sky), rgba(79,142,247,0.3), transparent);
+}
+
+/* Card internals */
+.tl-head { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+.tl-logo {
+  width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+  background: var(--navy-4); border: 1px solid var(--line-2);
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.tl-logo img { width: 30px; height: 30px; object-fit: contain; filter: brightness(0) invert(1); }
+.tl-logo-ph { font-size: 1rem; }
+.tl-meta { flex: 1; min-width: 0; }
+.tl-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.15rem; line-height: 1.2; }
+.tl-org { font-size: 0.85rem; color: var(--sky); }
+.tl-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.tl-badge {
+  padding: 3px 11px; font-size: 0.63rem; letter-spacing: 0.09em;
+  text-transform: uppercase; border-radius: 100px;
+}
+.b-current { background: rgba(79,142,247,0.15); color: var(--sky);   border: 1px solid rgba(79,142,247,0.3); }
+.b-intern  { background: rgba(99,179,255,0.1);  color: #7aaeff;      border: 1px solid rgba(99,179,255,0.25); }
+.b-lead    { background: rgba(139,92,246,0.12); color: #c4b5fd;      border: 1px solid rgba(139,92,246,0.28); }
+.b-fellow  { background: rgba(16,185,129,0.1);  color: #34d399;      border: 1px solid rgba(16,185,129,0.25); }
+.b-vol     { background: rgba(251,191,36,0.1);  color: #fbbf24;      border: 1px solid rgba(251,191,36,0.25); }
+.b-dev     { background: rgba(244,114,182,0.1); color: #f9a8d4;      border: 1px solid rgba(244,114,182,0.25); }
+.tl-date { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; white-space: nowrap; }
+
+.tl-bullets { padding-left: 1rem; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.45rem; }
+.tl-bullets li { font-size: 0.88rem; color: var(--dim); line-height: 1.75; }
+.tl-bullets li::marker { color: var(--sky); }
+
+.tl-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tl-chip {
+  font-size: 0.67rem; padding: 3px 11px; border-radius: 100px;
+  border: 1px solid var(--line-2); color: var(--muted); transition: all 0.2s;
+}
+.tl-chip:hover { border-color: var(--sky); color: var(--sky); }
+
+/* ════════════════════════════════════════
+   PUBLICATIONS
+════════════════════════════════════════ */
+.pubs-grid { display: flex; flex-direction: column; gap: 1.25rem; }
+.pub-card {
+  background: var(--navy-3); border: 1px solid var(--line); border-radius: 14px;
+  padding: 1.75rem 2rem; display: grid; grid-template-columns: 64px 1fr auto;
+  gap: 1.5rem; align-items: center; text-decoration: none; color: inherit;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  position: relative; overflow: hidden;
+}
+.pub-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--sky); opacity: 0; transition: opacity 0.25s;
+}
+.pub-card:hover { border-color: rgba(79,142,247,0.28); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.22); }
+.pub-card:hover::before { opacity: 1; }
+
+.pub-badge {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 56px; height: 56px; border-radius: 12px;
+  background: var(--glow); border: 1px solid rgba(79,142,247,0.18); flex-shrink: 0;
+  gap: 2px;
+}
+.pub-icon { font-size: 1.3rem; line-height: 1; }
+.pub-year { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--sky); }
+
+.pub-venue {
+  font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky);
+  margin-bottom: 0.4rem; display: flex; align-items: center; gap: 6px;
+}
+.pub-venue::before { content: ''; display: block; width: 12px; height: 1px; background: var(--sky); }
+.pub-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 600; color: var(--white); line-height: 1.35; margin-bottom: 0.35rem; }
+.pub-authors { font-size: 0.79rem; color: var(--muted); }
+.pub-authors strong { color: var(--dim); font-weight: 500; }
+
+.pub-arrow { font-size: 1.1rem; color: var(--muted); transition: color 0.2s, transform 0.2s; flex-shrink: 0; }
+.pub-card:hover .pub-arrow { color: var(--sky); transform: translateX(4px); }
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 760px) {
+  .page-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+  .career-tabs { overflow-x: auto; }
+  .tl-head { flex-wrap: wrap; }
+  .tl-right { flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .pub-card { grid-template-columns: 56px 1fr; }
+  .pub-arrow { display: none; }
+  .page-hero { padding: 4rem 0 3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><span class="nav-logo-dot"></span>Khang Nguyen</a>
+  <ul class="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="career.html" class="active">Career</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">About</a><a href="career.html">Career</a>
+  <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+</div>
+
+<main>
+
+<!-- ═══ HERO ═══ -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div>
+        <span class="eyebrow">Professional Journey</span>
+        <h1>Career</h1>
+        <p style="margin-top:1.25rem; max-width:520px; color:var(--dim); font-size:1rem; line-height:1.8;">
+          Aerospace engineer with experience across satellite systems, aircraft hardware, and engineering leadership — building real-world technology at the frontier of space and aviation.
+        </p>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><div class="hs-val">4</div><div class="hs-lbl">Organizations</div></div>
+        <div class="hs"><div class="hs-val">5</div><div class="hs-lbl">Years Exp.</div></div>
+        <div class="hs"><div class="hs-val">Inf</div><div class="hs-lbl">Volunteer hrs</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY TAB NAV -->
+<nav class="career-tabs">
+  <a href="#education" class="career-tab active">Education</a>
+  <a href="#experience" class="career-tab">Experience</a>
+  <a href="#volunteer" class="career-tab">Volunteer</a>
+  <a href="#publications" class="career-tab">Publications</a>
+</nav>
+
+<!-- ═══ EDUCATION ═══ -->
+<section class="career-section" id="education">
+  <div class="container reveal">
+    <span class="eyebrow">Education</span>
+    <h2>Academic Background</h2>
+    <div class="edu-grid" style="margin-top:3rem;">
+
+      <div class="edu-card">
+        <div class="edu-logo">
+          <img src="companies/university-of-toronto-logo.png" alt="UofT"
+            onerror="this.outerHTML='<span class=\'edu-logo-ph\'>🎓</span>'" />
+        </div>
+        <div>
+          <div class="edu-school">University of Toronto</div>
+          <div class="edu-prog">BASc Engineering Science — Aerospace</div>
+          <div class="edu-years">Sept. 2020 – Present · Toronto, Ontario, Canada</div>
+          <div class="edu-chips">
+            <span class="edu-chip">Aerospace Engineering</span>
+            <span class="edu-chip">Aircraft Engineering</span>
+            <span class="edu-chip">Spacecraft Engineering</span>
+            <span class="edu-chip">Robotic Engineering</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-logo">
+          <img src="companies/trootilead_logo.png" alt="UofT ILead"
+            onerror="this.outerHTML='<span class=\'edu-logo-ph\'>🏅</span>'" />
+        </div>
+        <div>
+          <div class="edu-school">Troost Institute for Leadership Education</div>
+          <div class="edu-prog">Engineering Leadership Summer Fellowship</div>
+          <div class="edu-years">May 2023 – Sept. 2023 · Toronto, Ontario, Canada</div>
+          <div class="edu-chips">
+            <span class="edu-chip">Leadership</span>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROFESSIONAL EXPERIENCE ═══ -->
+<section class="career-section section-alt" id="experience">
+  <div class="container reveal">
+    <span class="eyebrow">Professional Experience</span>
+    <h2>Work History</h2>
+
+    <div class="timeline" style="margin-top:3rem;">
+
+      <!-- Kepler 2024–Present -->
+      <div class="tl-group">
+        <div class="tl-year is-now">Aug. 2024 — Present</div>
+        <div class="tl-item">
+          <div class="tl-card is-current">
+            <div class="tl-head">
+              <div class="tl-logo">
+                <img src="companies/kepler.png" alt="Kepler"
+                  onerror="this.outerHTML='<span class=\'tl-logo-ph\'>🛰️</span>'" />
+              </div>
+              <div class="tl-meta">
+                <div class="tl-title">Satellite Systems Engineering Designer</div>
+                <div class="tl-org">Kepler Communication Inc. · Toronto, Ontario</div>
+              </div>
+              <div class="tl-right">
+                <span class="tl-badge b-current">Systems</span>
+                <div class="tl-date">Aug. 2024 – Present</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Designed and implemented a cloud-based Systems Design Toolbox in Python to streamline Systems Engineering services and integrate software into the company's design workflow.</li>
+              <li>Developed a Model-Based Systems Engineering (MBSE) framework enabling efficient satellite analysis across requirements management, budget allocation, and integration processes.</li>
+              <li>Led the development of a global engineering design process for technology innovation by collaborating with cross-functional teams.</li>
+              <li>Contributed to mission simulation software by developing a delta-V budget analysis script for nine satellites, enabling precise formation flying for optical link connections in space.</li>
+              <li>Supported verification management by analysing test data and collaborating with cross-functional teams to ensure all requirements were met prior to launch.</li>
+            </ul>
+            <div class="tl-chips">
+              <span class="tl-chip">Python</span>
+              <span class="tl-chip">MBSE</span>
+              <span class="tl-chip">Systems Engineering</span>
+              <span class="tl-chip">Requirements Management</span>
+              <span class="tl-chip">Mission Simulation</span>
+              <span class="tl-chip">Process & Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pratt & Whitney 2024 -->
+      <div class="tl-group">
+        <div class="tl-year">May 2024 — Aug. 2024</div>
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-head">
+              <div class="tl-logo">
+                <img src="companies/Pratt_&_Whitney_logo.svg" alt="Pratt & Whitney"
+                  onerror="this.outerHTML='<span class=\'tl-logo-ph\'>✈️</span>'" />
+              </div>
+              <div class="tl-meta">
+                <div class="tl-title">Product Center Engineering Designer — Turbomachinery</div>
+                <div class="tl-org">Pratt & Whitney Canada · Toronto, Ontario</div>
+              </div>
+              <div class="tl-right">
+                <span class="tl-badge b-intern">Mechanical</span>
+                <div class="tl-date">May 2024 – Aug. 2024</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Conducted design modifications on multiple parts for multiple aircraft engines, enhancing manufacturing efficiency, ensuring material compliance, and improving engine performance.</li>
+              <li>Facilitated supplier transitions by establishing substantiation requirements and reviewing testing data including dimensional tolerances, key characteristics, and fit assembly evaluations.</li>
+              <li>Led 12-person Integrated Product Team (IPT) to investigate field challenges and develop new design solutions.</li>
+              <li>Performed stack-up analysis, mark-up analysis, and GD&T calculations for nine engine models.</li>
+              <li>Led the organisation of 5 events for 25 interns as Intern Committee Lead, facilitating professional connections between interns and managers.</li>
+            </ul>
+            <div class="tl-chips">
+              <span class="tl-chip">Turbomachinery</span>
+              <span class="tl-chip">GD&T</span>
+              <span class="tl-chip">CAD</span>
+              <span class="tl-chip">Aircraft Engines</span>
+              <span class="tl-chip">Propulsion</span>
+              <span class="tl-chip">Manufacturing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Johnson Controls 2023–2024 -->
+      <div class="tl-group">
+        <div class="tl-year">May 2023 — May 2024</div>
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-head">
+              <div class="tl-logo">
+                <img src="companies/Johnson_Controls.svg.png" alt="Johnson Controls"
+                  onerror="this.outerHTML='<span class=\'tl-logo-ph\'>⚙️</span>'" />
+              </div>
+              <div class="tl-meta">
+                <div class="tl-title">Hardware Design Intern</div>
+                <div class="tl-org">Johnson Controls International · Toronto, Ontario</div>
+              </div>
+              <div class="tl-right">
+                <span class="tl-badge b-intern">Electrical</span>
+                <div class="tl-date">May 2023 – May 2024</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Conducted hardware design including antenna design, PCB design, and hardware testing for various products and communication protocols at the world's leading security controls R&D facility.</li>
+              <li>Developed testing procedures for regulatory certification across global regions, facilitating product sales compliance and ensuring products meet company quality standards.</li>
+              <li>Led the creation of advanced data analysis software using MATLAB for SNR analysis, sensitivity analysis, and hardware simulation to optimise the development process.</li>
+              <li>Developed and implemented robotic procedures using Visual Basic for automation testing, encompassing motion testing, sensitivity testing, and shock testing.</li>
+            </ul>
+            <div class="tl-chips">
+              <span class="tl-chip">PCB Design</span>
+              <span class="tl-chip">Antenna Design</span>
+              <span class="tl-chip">Hardware Testing</span>
+              <span class="tl-chip">Regulatory Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Astris Aerospace 2022 -->
+      <div class="tl-group">
+        <div class="tl-year">May 2022 — Aug. 2022</div>
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-head">
+              <div class="tl-logo" style="font-size:1rem; display:flex; align-items:center; justify-content:center;">
+                🚀
+              </div>
+              <div class="tl-meta">
+                <div class="tl-title">GNC Software Developer</div>
+                <div class="tl-org">Astris Aerospace Inc. · Toronto, Ontario</div>
+              </div>
+              <div class="tl-right">
+                <span class="tl-badge b-dev">Software</span>
+                <div class="tl-date">May 2022 – Aug. 2022</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Created a pure Python library for spacecraft Attitude Control System (ACS) design.</li>
+              <li>Developed a high-accuracy space environment model for high-precision navigation analysis.</li>
+              <li>Used the ACS library to validate and design satellite attitude control systems.</li>
+              <li>Analysed and validated Attitude Control System models using Ansys Systems Tool Kit (STK).</li>
+              <li>Collaborated with co-workers using GitHub for version control.</li>
+            </ul>
+            <div class="tl-chips">
+              <span class="tl-chip">Python</span>
+              <span class="tl-chip">ACS / GNC</span>
+              <span class="tl-chip">STK</span>
+              <span class="tl-chip">Space Environment Modelling</span>
+              <span class="tl-chip">GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-group">
+        <div class="tl-year">June 2021 — Aug. 2021</div>
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-head">
+              <div class="tl-logo">
+                <img src="companies/STEM-camp-logo-primary-full-colour-3x.webp" alt="STEM Camp"
+                  onerror="this.outerHTML='<span class=\'tl-logo-ph\'>🌐</span>'" />
+              </div>
+              <div class="tl-meta">
+                <div class="tl-title">Health and Safety Site Manager</div>
+                <div class="tl-org">STEM Camp · Barrie, Ontario</div>
+              </div>
+              <div class="tl-right">
+                <span class="tl-badge b-vol">Health and Safety </span>
+                <div class="tl-date">June 2022 – Aug. 2022</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Managed the health and safety of staff and campers on site.</li>
+              <li>Delivered engaging and educational STEM Camp experiences through scientific activities.</li>
+              <li>Led students aged 5–13 in learning the basic principles of coding using Scratch.</li>
+              <li>Collaborated with other counsellors to ensure sessions were creative and interactive.</li>
+            </ul>
+            <div class="tl-chips">
+              <span class="tl-chip">Teaching</span>
+              <span class="tl-chip">Health & Safety</span>
+              <span class="tl-chip">STEM Education</span>
+              <span class="tl-chip">Youth Mentorship</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ═══ VOLUNTEER & LEADERSHIP ═══ -->
+<section class="career-section" id="volunteer">
+  <div class="container reveal">
+    <span class="eyebrow">Volunteer &amp; Leadership</span>
+    <h2>Community Involvement</h2>
+
+    <div class="timeline" style="margin-top:3rem;">
+
+      <!-- UTAT Director -->
+      <div class="tl-group">
+        <div class="tl-year is-now">Oct. 2020 — Present</div>
+
+        <div class="tl-item">
+          <div class="tl-card is-current">
+            <div class="tl-head">
+              <div class="tl-logo">
+                <img src="companies/utat-logo.png" alt="UTAT"
+                  onerror="this.outerHTML='<span class=\'tl-logo-ph\'>🛰️</span>'" />
+              </div>
+              <div class="tl-meta">
+                <div class="tl-title">Director of Space Systems</div>
+                <div class="tl-org">University of Toronto Aerospace Team (UTAT) · Toronto, Ontario</div>
+              </div>
+              <div class="tl-right">
+                <span class="tl-badge b-lead">Director</span>
+                <div class="tl-date">Oct. 2020 – Present</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Strategically steered organisational initiatives, resulting in 210,000 CAD in project funding, a 30% team expansion, and five new partnerships.</li>
+              <li>Ensured team compliance with all regulatory standards and obtained appropriate licences from the Canadian Space Agency, Global Affairs Canada, FCC, and ISED.</li>
+              <li>Implemented Model-Based Systems Engineering (MBSE) framework into the organisational workflow to facilitate integration and ensure all subsystems function cohesively.</li>
+            </ul>
+            <div class="tl-chips">
+              <span class="tl-chip">MBSE</span>
+              <span class="tl-chip">Regulatory Compliance</span>
+              <span class="tl-chip">Fundraising</span>
+              <span class="tl-chip">Team Leadership</span>
+              <span class="tl-chip">Partnership Development</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- UTAT ADCS Lead -->
+        <div class="tl-item" style="margin-top:1.25rem;">
+          <div class="tl-card">
+            <div class="tl-head">
+              <div class="tl-logo">
+                <img src="companies/utat-logo.png" alt="UTAT"
+                  onerror="this.outerHTML='<span class=\'tl-logo-ph\'>🛰️</span>'" />
+              </div>
+              <div class="tl-meta">
+                <div class="tl-title">Attitude Determination and Control Systems Lead</div>
+                <div class="tl-org">University of Toronto Aerospace Team (UTAT) · Toronto, Ontario</div>
+              </div>
+              <div class="tl-right">
+                <span class="tl-badge b-lead">Leadership</span>
+                <div class="tl-date">Oct. 2020 – Sept. 2023</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              <li>Led a team of 15 engineering students to develop the ADCS for the FINCH satellite mission (Field Imaging Nanosatellite for Crop residue Hyperspectral mapping).</li>
+              <li>Designed satellite control systems including sensors, actuators, and software components, integrating them into the overall systems architecture.</li>
+              <li>Developed MATLAB and Python scripts for Guidance, Navigation, and Control (GNC) applications on orbit.</li>
+              <li>Performed mission simulations using Ansys STK and conducted risk analysis and trade-off studies.</li>
+            </ul>
+            <div class="tl-chips">
+              <span class="tl-chip">ADCS</span>
+              <span class="tl-chip">MATLAB</span>
+              <span class="tl-chip">Python</span>
+              <span class="tl-chip">GNC</span>
+              <span class="tl-chip">STK</span>
+              <span class="tl-chip">Risk Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PUBLICATIONS ═══ -->
+<section class="career-section section-alt" id="publications">
+  <div class="container reveal">
+    <span class="eyebrow">Research</span>
+    <h2>Publications &amp; Papers</h2>
+
+    <div class="pubs-grid" style="margin-top:3rem;">
+
+      <a href="https://digitalcommons.usu.edu/cgi/viewcontent.cgi?article=5758&context=smallsat"
+         target="_blank" class="pub-card">
+        <div class="pub-badge">
+          <div class="pub-icon">📄</div>
+          <div class="pub-year">2024</div>
+        </div>
+        <div>
+          <div class="pub-venue">Small Satellite Conference · Aug. 3, 2024</div>
+          <div class="pub-title">Hot and Cold: The FINCH Thermal Simulator</div>
+          <div class="pub-authors"><strong>Khang Nguyen</strong> et al. · University of Toronto Aerospace Team</div>
+        </div>
+        <div class="pub-arrow">→</div>
+      </a>
+
+      <a href="https://digitalcommons.usu.edu/cgi/viewcontent.cgi?article=5927&context=smallsat" class="pub-card">
+        <div class="pub-badge">
+          <div class="pub-icon">📄</div>
+          <div class="pub-year">2023</div>
+        </div>
+        <div>
+          <div class="pub-venue">Small Satellite Conference · Aug. 4, 2023</div>
+          <div class="pub-title">Beyond the Visible: Jointly Attending to Spectral and Spatial Dimensions with HSI-Diffusion for the FINCH Spacecraft</div>
+          <div class="pub-authors"><strong>Khang Nguyen</strong> et al. · University of Toronto Aerospace Team</div>
+        </div>
+        <div class="pub-arrow">→</div>
+      </a>
+
+      <!--
+        ADD MORE PUBLICATIONS: copy a .pub-card block.
+        Update href, pub-year, pub-venue, pub-title, pub-authors.
+        Icons: 📄 conference paper · 📝 article · 🔬 journal
+      -->
+
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+
+<footer>
+  <span>© 2025 Khang Nguyen — Toronto, Canada</span>
+  <div class="footer-links">
+    <a href="https://github.com/khangaerospace" target="_blank">GitHub</a>
+    <a href="index.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  ham.addEventListener('click', () => mob.classList.toggle('open'));
+
+  const io = new IntersectionObserver(entries =>
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Highlight active tab on scroll
+  const tabs = document.querySelectorAll('.career-tab');
+  const sections = ['education','experience','volunteer','publications'].map(id => document.getElementById(id));
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY + 140;
+    sections.forEach((sec, i) => {
+      if (sec && sec.offsetTop <= scrollY) {
+        tabs.forEach(t => t.classList.remove('active'));
+        tabs[i].classList.add('active');
+      }
+    });
+  }, { passive: true });
+</script>
+</body>
+</html>
